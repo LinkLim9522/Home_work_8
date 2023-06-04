@@ -1,1 +1,63 @@
-Задачи в ветках: task_54, task_56 итд
+Задача 58
+int size = ReadInt("Введите размер матриц: ");
+int[,] firstarray = new int[size, size];
+int[,] secondArray = new int[size, size];
+int[,] resultArray = new int[size, size];
+
+FillArrayRandom(firstarray);
+PrintArray2D(firstarray);
+
+Console.WriteLine();
+
+FillArrayRandom(secondArray);
+PrintArray2D(secondArray);
+
+Console.WriteLine();
+
+if (firstarray.GetLength(0) != secondArray.GetLength(1))
+{
+    Console.WriteLine(" Ошибка при перемножении, повторите ввод параметров ");
+    return;
+}
+for (int i = 0; i < firstarray.GetLength(0); i++)
+{
+    for (int j = 0; j < secondArray.GetLength(1); j++)
+    {
+        resultArray[i, j] = 0;
+        for (int k = 0; k < firstarray.GetLength(1); k++)
+        {
+            resultArray[i, j] += firstarray[i, k] * secondArray[k, j];
+        }
+    }
+}
+
+PrintArray2D(resultArray);
+
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+void FillArrayRandom(int[,] firstarray)
+{
+    for (int i = 0; i < firstarray.GetLength(0); i++)
+    {
+        for (int j = 0; j < firstarray.GetLength(1); j++)
+        {
+            firstarray[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray2D(int[,] firstarray)
+{
+    for (int i = 0; i < firstarray.GetLength(0); i++)
+    {
+        for (int j = 0; j < firstarray.GetLength(1); j++)
+        {
+            Console.Write($"{firstarray[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
