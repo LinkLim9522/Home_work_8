@@ -1,1 +1,35 @@
-Задачи в ветках: task_54, task_56 итд
+//Задача 60
+int[,,] array = new int[2, 2, 2];
+FillArray(array);
+PrintIndex(array);
+
+void PrintIndex(int[,,] numbers)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.WriteLine();
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
+            }
+        }
+    }
+}
+
+void FillArray(int[,,] numbers)
+{
+    int count = 10;
+    for (int i = 0; i < numbers.GetLength(0); i++)
+    {
+        for (int j = 0; j < numbers.GetLength(1); j++)
+        {
+            for (int k = 0; k < numbers.GetLength(2); k++)
+            {
+                numbers[k, i, j] = count;
+                count = count + 1;
+            }
+        }
+    }
+}
