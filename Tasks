@@ -1,4 +1,4 @@
-Задача 58
+//Задача 58
 int size = ReadInt("Введите размер матриц: ");
 int[,] firstarray = new int[size, size];
 int[,] secondArray = new int[size, size];
